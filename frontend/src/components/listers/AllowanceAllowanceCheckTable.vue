@@ -69,8 +69,8 @@
                     { text: "id", value: "id" },
                     { text: "userId", value: "userId" },
                     { text: "allowedCpu", value: "allowedCpu" },
-                    { text: "allowedGpu", value: "allowedGpu" },
-                    { text: "allowedStorage", value: "allowedStorage" },
+                    { text: "allowsGpu", value: "allowsGpu" },
+                    { text: "allowsStorage", value: "allowsStorage" },
                 ],
             allowanceCheck : [],
             newValue: {},
@@ -89,9 +89,9 @@
 
             this.newValue = {
                 'userId': '',
-                'allowedCpu': '',
-                'allowedGpu': '',
-                'allowedStorage': '',
+                'allowedCpu': 0,
+                'allowsGpu': 0,
+                'allowsStorage': 0,
             }
         },
         methods: {

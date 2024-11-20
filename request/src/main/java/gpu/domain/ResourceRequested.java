@@ -13,10 +13,10 @@ public class ResourceRequested extends AbstractEvent {
 
     private Long id;
     private String userId;
-    private String numCpu;
-    private String numGpu;
-    private String numStorage;
     private String status;
+    private Integer numCpu;
+    private Integer numGpu;
+    private Integer numStorage;
 
     public ResourceRequested(Allocation aggregate) {
         super(aggregate);

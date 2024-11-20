@@ -39,7 +39,7 @@ mvn spring-boot:run
 ```
 - allowance
 ```
- http :8088/allowanceChecks id="id" userId="userId" allowedCpu="allowedCPU" allowedGpu="allowedGPU" allowedStorage="allowedStorage" 
+ http :8088/allowanceChecks id="id" userId="userId" allowedCpu="allowedCpu" allowsGpu="allowsGpu" allowsStorage="allowsStorage" 
 ```
 - customermanagement
 ```

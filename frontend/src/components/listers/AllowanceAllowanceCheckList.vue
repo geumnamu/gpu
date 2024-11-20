@@ -51,8 +51,8 @@
                             [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ UserId :  {{data.userId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ AllowedCpu :  {{data.allowedCpu }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ AllowedGpu :  {{data.allowedGpu }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ AllowedStorage :  {{data.allowedStorage }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ AllowsGpu :  {{data.allowsGpu }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ AllowsStorage :  {{data.allowsStorage }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -121,9 +121,9 @@
             
             this.newValue = {
                 'userId': '',
-                'allowedCpu': '',
-                'allowedGpu': '',
-                'allowedStorage': '',
+                'allowedCpu': 0,
+                'allowsGpu': 0,
+                'allowsStorage': 0,
             }
         },
         methods: {

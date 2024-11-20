@@ -9,13 +9,13 @@
                 <String label="UserId" v-model="item.userId" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="AllowedCpu" v-model="item.allowedCpu" :editMode="editMode" @change="change" />
+                <Number label="AllowedCpu" v-model="item.allowedCpu" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="AllowedGpu" v-model="item.allowedGpu" :editMode="editMode" @change="change" />
+                <Number label="AllowsGpu" v-model="item.allowsGpu" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="AllowedStorage" v-model="item.allowedStorage" :editMode="editMode" @change="change" />
+                <Number label="AllowsStorage" v-model="item.allowsStorage" :editMode="editMode" @change="change" />
             </div>
         </v-card-text>
 
