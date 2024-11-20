@@ -66,35 +66,40 @@ public class AllocationManagement {
          });
         */
 
-        repository().findById(allowanceChecked.getId()).ifPresentOrElse(allocationManagement -> {
-            // Update the allocation if it exists
-            allocationManagement.setNumCpu(
-                allowanceChecked.getRequestedCpu()
-            );
-            allocationManagement.setNumGpu(
-                allowanceChecked.getRequestedGpu()
-            );
-            allocationManagement.setNumStorage(
-                allowanceChecked.getRequestedStorage()
-            );
-            allocationManagement.setStatus("UPDATED");
-            repository().save(allocationManagement);
-        }, () -> {
-            // Create a new allocation if it doesn't exist
-            AllocationManagement allocationManagement = new AllocationManagement();
-            allocationManagement.setUserId(allowanceChecked.getUserId());
-            allocationManagement.setNumCpu(
-                allowanceChecked.getRequestedCpu()
-            );
-            allocationManagement.setNumGpu(
-                allowanceChecked.getRequestedGpu()
-            );
-            allocationManagement.setNumStorage(
-                allowanceChecked.getRequestedStorage()
-            );
-            allocationManagement.setStatus("CREATED");
-            repository().save(allocationManagement);
-        });
+       if (allowanceChecked.getRequestedCpu() != 0 || allowanceChecked.getRequestedGpu() != 0 || allowanceChecked.requestedStorage() != 0) {
+            repository().findById(allowanceChecked.getId()).ifPresentOrElse(allocationManagement -> {
+                // Update the allocation if it exists
+                allocationManagement.setNumCpu(
+                    allowanceChecked.getRequestedCpu()
+                );
+                allocationManagement.setNumGpu(
+                    allowanceChecked.getRequestedGpu()
+                );
+                allocationManagement.setNumStorage(
+                    allowanceChecked.getRequestedStorage()
+                );
+                allocationManagement.setStatus("UPDATED");
+                repository().save(allocationManagement);
+            }, () -> {
+                // Create a new allocation if it doesn't exist
+                AllocationManagement allocationManagement = new AllocationManagement();
+                allocationManagement.setUserId(allowanceChecked.getUserId());
+                allocationManagement.setNumCpu(
+                    allowanceChecked.getRequestedCpu()
+                );
+                allocationManagement.setNumGpu(
+                    allowanceChecked.getRequestedGpu()
+                );
+                allocationManagement.setNumStorage(
+                    allowanceChecked.getRequestedStorage()
+                );
+                allocationManagement.setStatus("CREATED");
+                repository().save(allocationManagement);
+            });
+       } else {
+            System.out.println("Resource not allocated");
+       }
+
 
     }
 
