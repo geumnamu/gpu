@@ -19,6 +19,9 @@ public class AllowanceRestored extends AbstractEvent {
     private Integer usedCpu;
     private Integer usedGpu;
     private Integer usedStorage;
+    private Integer requestedCpu;
+    private Integer requestedGpu;
+    private Integer requestedStorage;
 
     public AllowanceRestored(AllowanceCheck aggregate) {
         super(aggregate);
