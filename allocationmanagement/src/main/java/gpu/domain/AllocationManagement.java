@@ -66,6 +66,36 @@ public class AllocationManagement {
          });
         */
 
+        repository().findById(allowanceChecked.getId()).ifPresentOrElse(allocationManagement -> {
+            // Update the allocation if it exists
+            allocationManagement.setNumCpu(
+                allowanceChecked.getRequestedCpu()
+            );
+            allocationManagement.setNumGpu(
+                allowanceChecked.getRequestedGpu()
+            );
+            allocationManagement.setNumStorage(
+                allowanceChecked.getRequestedStorage()
+            );
+            allocationManagement.setStatus("UPDATED");
+            repository().save(allocationManagement);
+        }, () -> {
+            // Create a new allocation if it doesn't exist
+            AllocationManagement allocationManagement = new AllocationManagement();
+            allocationManagement.setUserId(allowanceChecked.getUserId());
+            allocationManagement.setNumCpu(
+                allowanceChecked.getRequestedCpu()
+            );
+            allocationManagement.setNumGpu(
+                allowanceChecked.getRequestedGpu()
+            );
+            allocationManagement.setNumStorage(
+                allowanceChecked.getRequestedStorage()
+            );
+            allocationManagement.setStatus("CREATED");
+            repository().save(allocationManagement);
+        });
+
     }
 
     //>>> Clean Arch / Port Method
@@ -89,6 +119,14 @@ public class AllocationManagement {
 
          });
         */
+        repository().findById(allowanceRestored.getId()).ifPresent(allocationManagement -> {
+            // Reset the allocation to reflect cancellation
+            allocationManagement.setNumCpu(0);
+            allocationManagement.setNumGpu(0);
+            allocationManagement.setNumStorage(0);
+            allocationManagement.setStatus("CANCELLED");
+            repository().save(allocationManagement);
+        });
 
     }
     //>>> Clean Arch / Port Method
