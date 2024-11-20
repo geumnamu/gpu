@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: allocationmanagement
-          image: "username/allocationmanagement:latest"
+          image: "ktds10/allocationmanagement:latest"
           ports:
             - containerPort: 8080
           readinessProbe:
