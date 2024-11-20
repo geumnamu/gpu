@@ -47,48 +47,41 @@ public class Allocation {
 
     //<<< Clean Arch / Port Method
     public static void changeStatus(Allocated allocated) {
-        //implement business logic here:
+        repository().findById(allocated.getId()).ifPresentOrElse(allocation -> {
+            // Update allocation status
+            allocation.setStatus(allocated.getStatus());
+            allocation.setNumCpu(allocated.getNumCpu());
+            allocation.setNumGpu(allocated.getNumGpu());
+            allocation.setNumStorage(allocated.getNumStorage());
 
-        /** Example 1:  new item 
-        Allocation allocation = new Allocation();
-        repository().save(allocation);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(allocated.get???()).ifPresent(allocation->{
-            
-            allocation // do something
             repository().save(allocation);
+        }, () -> {
+            // Create a new allocation if not found
+            Allocation newAllocation = new Allocation();
+            newAllocation.setId(allocated.getId());
+            newAllocation.setUserId(allocated.getUserId());
+            newAllocation.setNumCpu(allocated.getNumCpu());
+            newAllocation.setNumGpu(allocated.getNumGpu());
+            newAllocation.setNumStorage(allocated.getNumStorage());
+            newAllocation.setStatus(allocated.getStatus());
 
-
-         });
-        */
+            repository().save(newAllocation);
+        });
 
     }
 
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
     public static void changeStatus(Retrieved retrieved) {
-        //implement business logic here:
+        repository().findById(retrieved.getId()).ifPresent(allocation -> {
+            // Update allocation status
+            allocation.setStatus("RETRIEVED");
+            allocation.setNumCpu(0);
+            allocation.setNumGpu(0);
+            allocation.setNumStorage(0);
 
-        /** Example 1:  new item 
-        Allocation allocation = new Allocation();
-        repository().save(allocation);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(retrieved.get???()).ifPresent(allocation->{
-            
-            allocation // do something
             repository().save(allocation);
-
-
-         });
-        */
+        });
 
     }
     //>>> Clean Arch / Port Method
