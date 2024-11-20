@@ -12,11 +12,11 @@ import lombok.*;
 public class RequestCancelled extends AbstractEvent {
 
     private Long id;
-    private String userId;
-    private String numCpu;
-    private String numGpu;
     private String numStorage;
     private String status;
+    private Integer numCpu;
+    private Integer numGpu;
+    private Integer numStorage;
 
     public RequestCancelled(Allocation aggregate) {
         super(aggregate);

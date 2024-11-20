@@ -21,10 +21,10 @@
                                 AllowedCpu :  {{item.allowedCpu }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                AllowedGpu :  {{item.allowedGpu }}
+                                AllowsGpu :  {{item.allowsGpu }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                AllowedStorage :  {{item.allowedStorage }}
+                                AllowsStorage :  {{item.allowsStorage }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

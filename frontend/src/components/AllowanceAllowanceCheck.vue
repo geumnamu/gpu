@@ -17,9 +17,9 @@
 
         <v-card-text style="background-color: white;">
             <String label="UserId" v-model="value.userId" :editMode="editMode" :inputUI="''"/>
-            <String label="AllowedCpu" v-model="value.allowedCpu" :editMode="editMode" :inputUI="''"/>
-            <String label="AllowedGpu" v-model="value.allowedGpu" :editMode="editMode" :inputUI="''"/>
-            <String label="AllowedStorage" v-model="value.allowedStorage" :editMode="editMode" :inputUI="''"/>
+            <Number label="AllowedCpu" v-model="value.allowedCpu" :editMode="editMode" :inputUI="''"/>
+            <Number label="AllowsGpu" v-model="value.allowsGpu" :editMode="editMode" :inputUI="''"/>
+            <Number label="AllowsStorage" v-model="value.allowsStorage" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

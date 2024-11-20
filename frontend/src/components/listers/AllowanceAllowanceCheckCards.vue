@@ -105,9 +105,9 @@
             
             me.newValue = {
                 'userId': '',
-                'allowedCpu': '',
-                'allowedGpu': '',
-                'allowedStorage': '',
+                'allowedCpu': 0,
+                'allowsGpu': 0,
+                'allowsStorage': 0,
             }
         },
         methods:{

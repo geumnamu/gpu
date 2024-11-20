@@ -123,9 +123,9 @@
             
             this.newValue = {
                 'userId': '',
-                'numCpu': '',
-                'numGpu': '',
-                'numStorage': '',
+                'numCpu': 0,
+                'numGpu': 0,
+                'numStorage': 0,
                 'status': '',
             }
         },

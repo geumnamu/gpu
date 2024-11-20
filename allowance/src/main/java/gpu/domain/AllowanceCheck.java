@@ -21,11 +21,11 @@ public class AllowanceCheck {
 
     private String userId;
 
-    private String allowedCpu;
+    private Integer allowedCpu;
 
-    private String allowedGpu;
+    private Integer allowsGpu;
 
-    private String allowedStorage;
+    private Integer allowsStorage;
 
     @PostPersist
     public void onPostPersist() {

@@ -21,11 +21,11 @@ public class AllocationManagement {
 
     private String userId;
 
-    private String numCpu;
+    private Integer numCpu;
 
-    private String numGpu;
+    private Integer numGpu;
 
-    private String numStorage;
+    private Integer numStorage;
 
     private String status;
 

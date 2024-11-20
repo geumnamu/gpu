@@ -13,9 +13,9 @@ public class AllowanceChecked extends AbstractEvent {
 
     private Long id;
     private String userId;
-    private String allowedCpu;
-    private String allowedGpu;
-    private String allowedStorage;
+    private Integer allowedCpu;
+    private Integer allowsGpu;
+    private Integer allowsStorage;
 
     public AllowanceChecked(AllowanceCheck aggregate) {
         super(aggregate);
