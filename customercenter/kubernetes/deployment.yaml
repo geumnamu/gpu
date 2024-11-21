@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: customercenter
-          image: "ktds10/customercenter:latest"
+          image: "dongnamu/customercenter:latest"
           ports:
             - containerPort: 8080
           readinessProbe:

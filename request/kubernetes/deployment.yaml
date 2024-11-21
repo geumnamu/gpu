@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: request
-          image: "ktds10/request:latest"
+          image: "dongnamu/request:latest"
           ports:
             - containerPort: 8080
           readinessProbe:

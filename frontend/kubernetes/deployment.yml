@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ktds10/frontend:latest
+          image: dongnamu/frontend:latest
           ports:
             - containerPort: 8080
           readinessProbe:
