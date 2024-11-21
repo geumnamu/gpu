@@ -53,6 +53,8 @@ public class AllocationManagement {
         AllocationManagement allocationManagement = new AllocationManagement();
         repository().save(allocationManagement);
 
+        Allocated allocated = new Allocated(allocationManagement);
+        allocated.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -62,6 +64,8 @@ public class AllocationManagement {
             allocationManagement // do something
             repository().save(allocationManagement);
 
+            Allocated allocated = new Allocated(allocationManagement);
+            allocated.publishAfterCommit();
 
          });
         */
@@ -77,6 +81,8 @@ public class AllocationManagement {
         AllocationManagement allocationManagement = new AllocationManagement();
         repository().save(allocationManagement);
 
+        Retrieved retrieved = new Retrieved(allocationManagement);
+        retrieved.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -86,6 +92,8 @@ public class AllocationManagement {
             allocationManagement // do something
             repository().save(allocationManagement);
 
+            Retrieved retrieved = new Retrieved(allocationManagement);
+            retrieved.publishAfterCommit();
 
          });
         */

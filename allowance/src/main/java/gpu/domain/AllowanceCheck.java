@@ -63,6 +63,8 @@ public class AllowanceCheck {
         AllowanceCheck allowanceCheck = new AllowanceCheck();
         repository().save(allowanceCheck);
 
+        AllowanceChecked allowanceChecked = new AllowanceChecked(allowanceCheck);
+        allowanceChecked.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -72,6 +74,8 @@ public class AllowanceCheck {
             allowanceCheck // do something
             repository().save(allowanceCheck);
 
+            AllowanceChecked allowanceChecked = new AllowanceChecked(allowanceCheck);
+            allowanceChecked.publishAfterCommit();
 
          });
         */
@@ -87,6 +91,8 @@ public class AllowanceCheck {
         AllowanceCheck allowanceCheck = new AllowanceCheck();
         repository().save(allowanceCheck);
 
+        AllowanceRestored allowanceRestored = new AllowanceRestored(allowanceCheck);
+        allowanceRestored.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -96,6 +102,8 @@ public class AllowanceCheck {
             allowanceCheck // do something
             repository().save(allowanceCheck);
 
+            AllowanceRestored allowanceRestored = new AllowanceRestored(allowanceCheck);
+            allowanceRestored.publishAfterCommit();
 
          });
         */
