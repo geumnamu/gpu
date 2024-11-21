@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: allocationmanagement
-          image: "dongnamu/allocationmanagement:latest"
+          image: "ktds10.azurecr.io/allocationmanagement:latest"
           ports:
             - containerPort: 8080
           readinessProbe:
