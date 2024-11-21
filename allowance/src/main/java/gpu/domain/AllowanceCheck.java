@@ -57,6 +57,7 @@ public class AllowanceCheck {
 
     //<<< Clean Arch / Port Method
     public static void checkAllowance(ResourceRequested resourceRequested) {
+
         repository().findById(resourceRequested.getId()).ifPresentOrElse(allowanceCheck -> {
             // Update the allowance based on the resource request
             boolean withinCpuLimit = resourceRequested.getNumCpu() <= (allowanceCheck.getAllowedCpu() - allowanceCheck.getUsedCpu());
@@ -79,9 +80,11 @@ public class AllowanceCheck {
                 allowanceCheck.setRequestedGpu(0);
                 allowanceCheck.setRequestedStorage(0);
             }
+  
+            AllowanceChecked allowanceChecked = new AllowanceChecked(allowanceCheck);
+            allowanceChecked.publishAfterCommit();
             
             repository().save(allowanceCheck);
-
         }, () -> {
             // Create new allowance check entry if not found
             AllowanceCheck allowanceCheck = new AllowanceCheck();
@@ -115,10 +118,10 @@ public class AllowanceCheck {
                 allowanceCheck.setRequestedGpu(0);
                 allowanceCheck.setRequestedStorage(0);
             }
-            
+            AllowanceChecked allowanceChecked = new AllowanceChecked(allowanceCheck);
+            allowanceChecked.publishAfterCommit();
             repository().save(allowanceCheck);
         });
-
     }
 
     //>>> Clean Arch / Port Method
@@ -130,6 +133,8 @@ public class AllowanceCheck {
         AllowanceCheck allowanceCheck = new AllowanceCheck();
         repository().save(allowanceCheck);
 
+        AllowanceRestored allowanceRestored = new AllowanceRestored(allowanceCheck);
+        allowanceRestored.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -139,6 +144,8 @@ public class AllowanceCheck {
             allowanceCheck // do something
             repository().save(allowanceCheck);
 
+            AllowanceRestored allowanceRestored = new AllowanceRestored(allowanceCheck);
+            allowanceRestored.publishAfterCommit();
 
          });
         */
