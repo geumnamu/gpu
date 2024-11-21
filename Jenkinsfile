@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         REGISTRY = 'ktds10.azurecr.io'
-        SERVICES = 'allocationmanagement,allowance,customercenter,customermanagement,request' // fix your microservices
+        SERVICES = 'allocationmanagement,allowance,customercenter,customermanagement,request,gateway' // fix your microservices
         AKS_CLUSTER = 'ktds10'
         RESOURCE_GROUP = 'ktds10-rsrcgrp'
         AKS_NAMESPACE = 'default'
