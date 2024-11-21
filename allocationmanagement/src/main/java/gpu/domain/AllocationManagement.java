@@ -70,6 +70,30 @@ public class AllocationManagement {
          });
         */
 
+        AllocationManagement allocationManagement = new AllocationManagement();
+        if (allowanceChecked.getRequestedCpu() != 0 || allowanceChecked.getRequestedGpu() != 0 || allowanceChecked.getRequestedStorage() != 0) {
+            allocationManagement.setUserId(allowanceChecked.getUserId());
+            allocationManagement.setNumCpu(
+                allowanceChecked.getRequestedCpu()
+            );
+            allocationManagement.setNumGpu(
+                allowanceChecked.getRequestedGpu()
+            );
+            allocationManagement.setNumStorage(
+                allowanceChecked.getRequestedStorage()
+            );
+            allocationManagement.setStatus("CREATED");
+        } else {
+            System.out.println("Resource not allocated");
+            allocationManagement.setUserId(allowanceChecked.getUserId());
+            allocationManagement.setNumCpu(0);
+            allocationManagement.setNumGpu(0);
+            allocationManagement.setNumStorage(0);
+            allocationManagement.setStatus("FAILED");
+        }
+        repository().save(allocationManagement);
+
+
     }
 
     //>>> Clean Arch / Port Method
@@ -97,6 +121,14 @@ public class AllocationManagement {
 
          });
         */
+        repository().findById(allowanceRestored.getId()).ifPresent(allocationManagement -> {
+            // Reset the allocation to reflect cancellation
+            allocationManagement.setNumCpu(0);
+            allocationManagement.setNumGpu(0);
+            allocationManagement.setNumStorage(0);
+            allocationManagement.setStatus("RETRIEVED");
+            repository().save(allocationManagement);
+        });
 
     }
     //>>> Clean Arch / Port Method

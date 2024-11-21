@@ -57,29 +57,71 @@ public class AllowanceCheck {
 
     //<<< Clean Arch / Port Method
     public static void checkAllowance(ResourceRequested resourceRequested) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
-        AllowanceCheck allowanceCheck = new AllowanceCheck();
-        repository().save(allowanceCheck);
+        repository().findById(resourceRequested.getId()).ifPresentOrElse(allowanceCheck -> {
+            // Update the allowance based on the resource request
+            boolean withinCpuLimit = resourceRequested.getNumCpu() <= (allowanceCheck.getAllowedCpu() - allowanceCheck.getUsedCpu());
+            boolean withinGpuLimit = resourceRequested.getNumGpu() <= (allowanceCheck.getAllowedGpu() - allowanceCheck.getUsedGpu());
+            boolean withinStorageLimit = resourceRequested.getNumStorage() <= (allowanceCheck.getAllowedStorage() - allowanceCheck.getUsedStorage());
 
-        AllowanceChecked allowanceChecked = new AllowanceChecked(allowanceCheck);
-        allowanceChecked.publishAfterCommit();
-        */
+            if (withinCpuLimit && withinGpuLimit && withinStorageLimit) {
+                // Update the allowance with the request if valid
+                allowanceCheck.setRequestedCpu(resourceRequested.getNumCpu());
+                allowanceCheck.setRequestedGpu(resourceRequested.getNumGpu());
+                allowanceCheck.setRequestedStorage(resourceRequested.getNumStorage());
 
-        /** Example 2:  finding and process
-        
-        repository().findById(resourceRequested.get???()).ifPresent(allowanceCheck->{
-            
-            allowanceCheck // do something
-            repository().save(allowanceCheck);
-
+                allowanceCheck.setUsedCpu(allowanceCheck.getUsedCpu() + resourceRequested.getNumCpu());
+                allowanceCheck.setUsedGpu(allowanceCheck.getUsedGpu() + resourceRequested.getNumGpu());
+                allowanceCheck.setUsedStorage(allowanceCheck.getUsedStorage() + resourceRequested.getNumStorage());
+                allowanceCheck.setUserId(resourceRequested.getUserId());
+            } else {
+                System.out.println("Requested resources exceed allowed limits.");
+                allowanceCheck.setRequestedCpu(0);
+                allowanceCheck.setRequestedGpu(0);
+                allowanceCheck.setRequestedStorage(0);
+            }
+  
             AllowanceChecked allowanceChecked = new AllowanceChecked(allowanceCheck);
             allowanceChecked.publishAfterCommit();
+            
+            repository().save(allowanceCheck);
+        }, () -> {
+            // Create new allowance check entry if not found
+            AllowanceCheck allowanceCheck = new AllowanceCheck();
+            allowanceCheck.setAllowedCpu(100); // Example default allowance
+            allowanceCheck.setAllowedGpu(50);
+            allowanceCheck.setAllowedStorage(1000);
+            allowanceCheck.setUsedCpu(0);
+            allowanceCheck.setUsedGpu(0);
+            allowanceCheck.setUsedStorage(0);
+            allowanceCheck.setUserId(resourceRequested.getUserId());
 
-         });
-        */
 
+            boolean withinCpuLimit = resourceRequested.getNumCpu() <= (allowanceCheck.getAllowedCpu() - allowanceCheck.getUsedCpu());
+            boolean withinGpuLimit = resourceRequested.getNumGpu() <= (allowanceCheck.getAllowedGpu() - allowanceCheck.getUsedGpu());
+            boolean withinStorageLimit = resourceRequested.getNumStorage() <= (allowanceCheck.getAllowedStorage() - allowanceCheck.getUsedStorage());
+            if (withinCpuLimit && withinGpuLimit && withinStorageLimit) {
+                System.out.println("Here");
+                // Update the allowance with the request if valid
+                allowanceCheck.setRequestedCpu(resourceRequested.getNumCpu());
+                allowanceCheck.setRequestedGpu(resourceRequested.getNumGpu());
+                allowanceCheck.setRequestedStorage(resourceRequested.getNumStorage());
+                
+                allowanceCheck.setUsedCpu(allowanceCheck.getUsedCpu() + resourceRequested.getNumCpu());
+                allowanceCheck.setUsedGpu(allowanceCheck.getUsedGpu() + resourceRequested.getNumGpu());
+                allowanceCheck.setUsedStorage(allowanceCheck.getUsedStorage() + resourceRequested.getNumStorage());
+
+
+            } else {
+                System.out.println("Requested resources exceed allowed limits.");
+                allowanceCheck.setRequestedCpu(0);
+                allowanceCheck.setRequestedGpu(0);
+                allowanceCheck.setRequestedStorage(0);
+            }
+            AllowanceChecked allowanceChecked = new AllowanceChecked(allowanceCheck);
+            allowanceChecked.publishAfterCommit();
+            repository().save(allowanceCheck);
+        });
     }
 
     //>>> Clean Arch / Port Method
@@ -107,6 +149,14 @@ public class AllowanceCheck {
 
          });
         */
+
+       repository().findById(requestCancelled.getId()).ifPresent(allowanceCheck -> {
+            // Reset requested resources
+            allowanceCheck.setUsedCpu(allowanceCheck.getUsedCpu() - requestCancelled.getNumCpu());
+            allowanceCheck.setUsedGpu(allowanceCheck.getUsedGpu() - requestCancelled.getNumGpu());
+            allowanceCheck.setUsedStorage(allowanceCheck.getUsedStorage() - requestCancelled.getNumStorage());
+            repository().save(allowanceCheck);
+        });
 
     }
     //>>> Clean Arch / Port Method
