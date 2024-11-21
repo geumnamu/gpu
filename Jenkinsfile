@@ -4,7 +4,7 @@ pipeline {
     environment {
         REGISTRY = 'ktds10.azurecr.io'
         SERVICES = 'allocationmanagement,allowance,customercenter,customermanagement,request,gateway' // fix your microservices
-        AKS_CLUSTER = 'ktds10'
+        AKS_CLUSTER = 'ktds10-aks'
         RESOURCE_GROUP = 'ktds10-rsrcgrp'
         AKS_NAMESPACE = 'default'
         AZURE_CREDENTIALS_ID = 'Azure-Cred'
