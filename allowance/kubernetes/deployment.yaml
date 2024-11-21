@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: allowance
-          image: "dongnamu/allowance:latest"
+          image: "ktds10.azurecr.io/allowance:latest"
           ports:
             - containerPort: 8080
           readinessProbe:
