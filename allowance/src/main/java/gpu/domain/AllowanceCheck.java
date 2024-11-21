@@ -88,9 +88,9 @@ public class AllowanceCheck {
         }, () -> {
             // Create new allowance check entry if not found
             AllowanceCheck allowanceCheck = new AllowanceCheck();
-            allowanceCheck.setAllowedCpu(100); // Example default allowance
-            allowanceCheck.setAllowedGpu(50);
-            allowanceCheck.setAllowedStorage(1000);
+            allowanceCheck.setAllowedCpu(3); // Example default allowance
+            allowanceCheck.setAllowedGpu(0);
+            allowanceCheck.setAllowedStorage(10);
             allowanceCheck.setUsedCpu(0);
             allowanceCheck.setUsedGpu(0);
             allowanceCheck.setUsedStorage(0);
