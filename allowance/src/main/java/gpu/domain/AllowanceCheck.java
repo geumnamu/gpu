@@ -72,7 +72,7 @@ public class AllowanceCheck {
                 allowanceCheck.setUsedCpu(allowanceCheck.getUsedCpu() + resourceRequested.getNumCpu());
                 allowanceCheck.setUsedGpu(allowanceCheck.getUsedGpu() + resourceRequested.getNumGpu());
                 allowanceCheck.setUsedStorage(allowanceCheck.getUsedStorage() + resourceRequested.getNumStorage());
-
+                allowanceCheck.setUserId(resourceRequested.getUserId());
             } else {
                 System.out.println("Requested resources exceed allowed limits.");
                 allowanceCheck.setRequestedCpu(0);
@@ -91,12 +91,14 @@ public class AllowanceCheck {
             allowanceCheck.setUsedCpu(0);
             allowanceCheck.setUsedGpu(0);
             allowanceCheck.setUsedStorage(0);
+            allowanceCheck.setUserId(resourceRequested.getUserId());
+
 
             boolean withinCpuLimit = resourceRequested.getNumCpu() <= (allowanceCheck.getAllowedCpu() - allowanceCheck.getUsedCpu());
             boolean withinGpuLimit = resourceRequested.getNumGpu() <= (allowanceCheck.getAllowedGpu() - allowanceCheck.getUsedGpu());
             boolean withinStorageLimit = resourceRequested.getNumStorage() <= (allowanceCheck.getAllowedStorage() - allowanceCheck.getUsedStorage());
-
             if (withinCpuLimit && withinGpuLimit && withinStorageLimit) {
+                System.out.println("Here");
                 // Update the allowance with the request if valid
                 allowanceCheck.setRequestedCpu(resourceRequested.getNumCpu());
                 allowanceCheck.setRequestedGpu(resourceRequested.getNumGpu());
