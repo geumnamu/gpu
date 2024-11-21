@@ -69,19 +69,10 @@ public class AllowanceCheck {
                 allowanceCheck.setRequestedGpu(resourceRequested.getNumGpu());
                 allowanceCheck.setRequestedStorage(resourceRequested.getNumStorage());
 
-                allowanceCheck.setUsedCpu(allowanceCheck.getUsedCpu() + resourceRequested.getNumCpu())
-                allowanceCheck.setUsedGpu(allowanceCheck.getUsedGpu() + resourceRequested.getNumGpu())
-                allowanceCheck.setUsedStorage(allowanceCheck.getUsedStorage() + resourceRequested.getNumStorage())
+                allowanceCheck.setUsedCpu(allowanceCheck.getUsedCpu() + resourceRequested.getNumCpu());
+                allowanceCheck.setUsedGpu(allowanceCheck.getUsedGpu() + resourceRequested.getNumGpu());
+                allowanceCheck.setUsedStorage(allowanceCheck.getUsedStorage() + resourceRequested.getNumStorage());
 
-
-                // Trigger AllocationManagement if the request is valid
-                AllocationManagement allocationManagement = new AllocationManagement();
-                allocationManagement.setUserId(resourceRequested.getUserId());
-                allocationManagement.setNumCpu(resourceRequested.getNumCpu());
-                allocationManagement.setNumGpu(resourceRequested.getNumGpu());
-                allocationManagement.setNumStorage(resourceRequested.getNumStorage());
-                allocationManagement.setStatus("ALLOCATED");
-                AllocationManagement.repository().save(allocationManagement);
             } else {
                 System.out.println("Requested resources exceed allowed limits.");
                 allowanceCheck.setRequestedCpu(0);
@@ -111,18 +102,10 @@ public class AllowanceCheck {
                 allowanceCheck.setRequestedGpu(resourceRequested.getNumGpu());
                 allowanceCheck.setRequestedStorage(resourceRequested.getNumStorage());
                 
-                allowanceCheck.setUsedCpu(allowanceCheck.getUsedCpu() + resourceRequested.getNumCpu())
-                allowanceCheck.setUsedGpu(allowanceCheck.getUsedGpu() + resourceRequested.getNumGpu())
-                allowanceCheck.setUsedStorage(allowanceCheck.getUsedStorage() + resourceRequested.getNumStorage())
+                allowanceCheck.setUsedCpu(allowanceCheck.getUsedCpu() + resourceRequested.getNumCpu());
+                allowanceCheck.setUsedGpu(allowanceCheck.getUsedGpu() + resourceRequested.getNumGpu());
+                allowanceCheck.setUsedStorage(allowanceCheck.getUsedStorage() + resourceRequested.getNumStorage());
 
-                // Trigger AllocationManagement if the request is valid
-                AllocationManagement allocationManagement = new AllocationManagement();
-                allocationManagement.setUserId(resourceRequested.getUserId());
-                allocationManagement.setNumCpu(resourceRequested.getNumCpu());
-                allocationManagement.setNumGpu(resourceRequested.getNumGpu());
-                allocationManagement.setNumStorage(resourceRequested.getNumStorage());
-                allocationManagement.setStatus("ALLOCATED");
-                AllocationManagement.repository().save(allocationManagement);
 
             } else {
                 System.out.println("Requested resources exceed allowed limits.");

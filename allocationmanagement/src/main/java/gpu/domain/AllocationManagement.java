@@ -66,8 +66,8 @@ public class AllocationManagement {
          });
         */
 
-       if (allowanceChecked.getRequestedCpu() != 0 || allowanceChecked.getRequestedGpu() != 0 || allowanceChecked.requestedStorage() != 0) {
-            AllocationManagement allocationManagement = new AllocationManagement();
+        AllocationManagement allocationManagement = new AllocationManagement();
+        if (allowanceChecked.getRequestedCpu() != 0 || allowanceChecked.getRequestedGpu() != 0 || allowanceChecked.getRequestedStorage() != 0) {
             allocationManagement.setUserId(allowanceChecked.getUserId());
             allocationManagement.setNumCpu(
                 allowanceChecked.getRequestedCpu()
@@ -79,15 +79,14 @@ public class AllocationManagement {
                 allowanceChecked.getRequestedStorage()
             );
             allocationManagement.setStatus("CREATED");
-       } else {
+        } else {
             System.out.println("Resource not allocated");
-            AllocationManagement allocationManagement = new AllocationManagement();
             allocationManagement.setUserId(allowanceChecked.getUserId());
             allocationManagement.setNumCpu(0);
             allocationManagement.setNumGpu(0);
             allocationManagement.setNumStorage(0);
             allocationManagement.setStatus("FAILED");
-       }
+        }
         repository().save(allocationManagement);
 
 
