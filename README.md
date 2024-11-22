@@ -113,6 +113,6 @@ To allocations
 
 
 ## 오류
-PVC와 HPA를 적용해보려고 했으나 한번 kubectl delete svc,pod,deploy --all를 시행한 이후 actuator 오류 발생으로 인해 진행을 하지 못함
+PVC와 HPA를 적용해보려고 했으나 한번 kubectl delete svc,pod,deploy --all를 시행한 이후 actuator 오류 발생으로 인해 테스트 진행을 하지 못함
 ![image](https://github.com/user-attachments/assets/6519830b-1976-4ac3-bb40-a4216e858275)
 
