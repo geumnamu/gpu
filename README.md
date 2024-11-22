@@ -27,7 +27,6 @@
 
 ## MSA 아키텍처 구성도
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/e544f0e7-670e-4527-8806-51ec8e3df915/image.png)
 
 # 클라우드 네이티브 모델링(Biz)
 
@@ -35,7 +34,7 @@
 
 도메인 - gpu 배정
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/d5631c88-1f12-427e-af15-92ee9421b24c/image.png)
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/e544f0e7-670e-4527-8806-51ec8e3df915/image.png)
 
 # 클라우드 네이비트 개발 MSA (Dev)
 
