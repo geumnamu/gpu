@@ -110,3 +110,7 @@ To allocations
 ### Jenkins pipeline
 
 ![image (15)](https://github.com/user-attachments/assets/a46d1d91-c0ec-418a-95d3-233da83b8e33)
+
+
+## 오류
+PVC와 HPA를 적용해보려고 했으나 한번 kubectl delete svc,pod,deploy --all를 시행한 이후 actuator 오류 발생으로 인해 진행을 하지 못함
