@@ -31,9 +31,8 @@
 # 클라우드 네이티브 모델링(Biz)
 
 ## 도메인분석 - 이벤트스토밍
-![image (1)](https://github.com/user-attachments/assets/e678c625-8719-49de-b863-cc3859f3cb76)
 도메인 - gpu 배정
-
+![image (1)](https://github.com/user-attachments/assets/e678c625-8719-49de-b863-cc3859f3cb76)
 
 
 # 클라우드 네이비트 개발 MSA (Dev)
