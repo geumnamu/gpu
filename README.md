@@ -26,54 +26,53 @@
 # 클라우드 네이티브 아키텍처 (IaaS)
 
 ## MSA 아키텍처 구성도
-
+![image](https://github.com/user-attachments/assets/a32da621-3be5-4dc6-85bf-491c277a7570)
 
 # 클라우드 네이티브 모델링(Biz)
 
 ## 도메인분석 - 이벤트스토밍
-
+![image (1)](https://github.com/user-attachments/assets/e678c625-8719-49de-b863-cc3859f3cb76)
 도메인 - gpu 배정
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/e544f0e7-670e-4527-8806-51ec8e3df915/image.png)
+
 
 # 클라우드 네이비트 개발 MSA (Dev)
 
 ## Gateway
 
 ### Gateway Configuration
+![image (2)](https://github.com/user-attachments/assets/8acc0784-d7bf-4ea7-89e6-28b51e8cb6dd)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/3bd34cbf-1228-433f-aafc-61c5ffef1f85/image.png)
 
 ### Gateway Testing
 
 To allowanceChecks
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/b7add87b-f4a7-4f37-a161-fd0f7f65e9df/image.png)
+![image (3)](https://github.com/user-attachments/assets/377593ab-2027-4d37-8a0c-fbcb35614321)
 
 To allocations
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/63cca2d4-8c68-4d72-a8fd-5f6ab3e94261/image.png)
-
+![image (4)](https://github.com/user-attachments/assets/5f50c269-3d62-4ff9-b6d6-09cd2280ec81)
 ## Saga / Compensation
 
 ### 컴퓨터 자원 할당 요청
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/3d49f1d1-c3bf-4e54-bd42-dfb638e0be70/image.png)
+![image (5)](https://github.com/user-attachments/assets/f1099eeb-74f2-4231-b5ab-14a8a2782d0c)
 
 ### 컴퓨터 허용 자원량 확인
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/33bd2e88-d3ef-4d75-bf86-6492f6912c16/image.png)
+![image (6)](https://github.com/user-attachments/assets/8c7a0647-0c83-402c-9cc4-34aa971868a1)
 
 ### 컴퓨터 자원 배정됨
 
 - 문제점 : 바로 회수된 후, 배정 - 회수 무한 반복 현상 발견
     - 해결 못함
 
-![컴퓨터 자원 배정된 후 바로 회수되는 모습](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/7655872b-75c2-45c5-a4b1-011484fbc960/image.png)
+![image (7)](https://github.com/user-attachments/assets/c7066006-3e5f-4893-baf2-defb8af3613f)
 
 컴퓨터 자원 배정된 후 바로 회수되는 모습
 
-![회수된 컴퓨터 자원 모습](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/884590b3-2ebd-4752-99cf-90e9b5f6686d/image.png)
+![image (8)](https://github.com/user-attachments/assets/e721ed47-79a1-4c8b-9dea-dbede73e5233)
 
 회수된 컴퓨터 자원 모습
 
@@ -81,9 +80,9 @@ To allocations
 
 ### User Monitoring
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/737faa1c-a567-4390-8a02-cb9dc818c12f/image.png)
+![image (9)](https://github.com/user-attachments/assets/374f8ad4-d79c-4a1a-8c2b-0d3ec56b3f52)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/a3e6e5f0-f40c-478d-98a6-9f2bc52e5ea9/image.png)
+![image (10)](https://github.com/user-attachments/assets/7638b89f-4e93-48bd-b521-9eeedb9c20fd)
 
 # 클라우드 네이티브 운영 (Ops, PaaS)
 
@@ -91,19 +90,19 @@ To allocations
 
 ### 클라우드 배포 - Container 운영
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/b5e6f046-8296-44db-8809-87fc894f0f6a/image.png)
+![image (11)](https://github.com/user-attachments/assets/0ef286cc-dac8-40cd-851a-0ab4c4d13eda)
 
 ### 컨테이너 형태로 마이크로서비스들이 띄어진 모습
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/3cd1e29c-493b-4824-9f8d-f12ad252cd1d/image.png)
+![image (12)](https://github.com/user-attachments/assets/94ddf0cd-4b40-4e14-bc40-1c43adfb6bb7)
 
 ### 컨테이너 상태에서 컴퓨터 자원 할당 요청
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/5bca60f3-cfc8-4bca-94ea-aa77873894d4/image.png)
+![image (13)](https://github.com/user-attachments/assets/308f9ecc-5866-431c-bbf2-b3f60a47025c)
 
 ### 컴퓨터 허용 자원량 확인
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/0184459c-131f-4147-a173-a6117a4c7c33/image.png)
+![image (14)](https://github.com/user-attachments/assets/6dd344cc-ae3f-4c44-aeda-9a0c0a3454d8)
 
 ## 컨테이너 인프라 설계 및 구성 역량
 
@@ -111,4 +110,4 @@ To allocations
 
 ### Jenkins pipeline
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/71839517-b71e-4c29-ae42-630c3bf70c0c/754442c0-cc59-4365-b5b0-8d300b28cb99/image.png)
+![image (15)](https://github.com/user-attachments/assets/a46d1d91-c0ec-418a-95d3-233da83b8e33)
